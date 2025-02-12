@@ -23,7 +23,7 @@ class BuscadorDeVersiculos {
     }
     buscarVersiculo = () => {
         async function fetchData() {
-            const url = 'https://bible-api.com/'+valorDeInput.value
+            const url = 'https://bible-api.com/'+valorDeInput.value+'?single_chapter_book_matching=indifferent'
             const response = await fetch(url);
             const dadosObtidos = await response.json();
             if (dadosObtidos.verses && dadosObtidos.verses.length > 0) {
