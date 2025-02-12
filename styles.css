@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40%;
+    height: 15%;
 }
 
 .search-input {
@@ -49,4 +49,20 @@ body {
     line-height: 1.6;
     white-space: pre-wrap;
     border: 2px solid #ccc;
+}
+
+.random-verse{
+    background-color: white;
+    width: 300px;
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    font-family: Verdana
+}
+.random-verse:hover{
+    background-color: rgb(164, 164, 164);
 }

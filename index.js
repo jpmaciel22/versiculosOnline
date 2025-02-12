@@ -1,5 +1,6 @@
 const valorDeInput = document.querySelector('.search-input')
 const printarResultado = document.querySelector('.texto-resultado')
+const botaoRandom = document.querySelector('.random-verse')
 const wallpapers = [
     'url("wall1.jpg")',
     'url("wall2.jpg")',
@@ -13,6 +14,7 @@ class BuscadorDeVersiculos {
 
     executaPrograma = () => {
         this.capturaEnter();
+        this.capturaClick();
     }
     capturaEnter = () => {
         document.addEventListener('keyup', e => {
@@ -21,9 +23,15 @@ class BuscadorDeVersiculos {
             }
           });
     }
+    capturaClick = () => {
+        botaoRandom.addEventListener('click', e => {
+            e.preventDefault();
+            this.randomVerse();
+        });
+    }
     buscarVersiculo = () => {
-        async function fetchData() {
-            const url = 'https://bible-api.com/'+valorDeInput.value+'?single_chapter_book_matching=indifferent'
+        const url = 'https://bible-api.com/'+valorDeInput.value+'?single_chapter_book_matching=indifferent'
+        async function fetchData(url) {
             const response = await fetch(url);
             const dadosObtidos = await response.json();
             if (dadosObtidos.verses && dadosObtidos.verses.length > 0) {
@@ -37,10 +45,26 @@ class BuscadorDeVersiculos {
                 printarResultado.value = 'Nenhum versículo encontrado.';
             }
         }
-        fetchData();
+        fetchData(url);
+    }
+    randomVerse = () => {
+        const url = 'https://bible-api.com/data/web/random';
+        async function fetchData(url) {
+            const response = await fetch(url);
+            const dadosObtidos = await response.json();
+    
+            if (dadosObtidos.random_verse) {
+                const verso = dadosObtidos.random_verse;
+                const versiculoFormatado = `${verso.book} - Capítulo ${verso.chapter}, Versículo ${verso.verse}: ${verso.text.replace(/\n+/g, ' ').trim()}`;
+                
+                printarResultado.innerText = versiculoFormatado;
+            } else {
+                printarResultado.innerText = 'Nenhum versículo encontrado.';
+            }
+        }
+        fetchData(url);
     }
 }
-
 const app = new BuscadorDeVersiculos();
 document.body.style.backgroundImage = escolherWallpaperAleatorio();
 app.executaPrograma();
