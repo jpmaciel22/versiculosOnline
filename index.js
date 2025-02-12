@@ -55,7 +55,7 @@ class BuscadorDeVersiculos {
     
             if (dadosObtidos.random_verse) {
                 const verso = dadosObtidos.random_verse;
-                const versiculoFormatado = `${verso.book} - Capítulo ${verso.chapter}, Versículo ${verso.verse}: ${verso.text.replace(/\n+/g, ' ').trim()}`;
+                const versiculoFormatado = `${verso.book} - Chapter ${verso.chapter}, Verse ${verso.verse}: ${verso.text.replace(/\n+/g, ' ').trim()}`;
                 
                 printarResultado.innerText = versiculoFormatado;
             } else {
