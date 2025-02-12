@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: Verdana;
 }
 
 body {
@@ -47,4 +47,5 @@ body {
     font-size: 18px;
     line-height: 1.6;
     white-space: pre-wrap;
+    border: 2px solid #ccc;
 }
