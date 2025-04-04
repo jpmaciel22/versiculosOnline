@@ -1,6 +1,10 @@
-const valorDeInput = document.querySelector('.search-input')
-const printarResultado = document.querySelector('.texto-resultado')
-const botaoRandom = document.querySelector('.random-verse')
+const valorDeInput = document.querySelector('.search-input');
+const printarResultado = document.querySelector('.texto-resultado');
+const botaoRandom = document.querySelector('.random-verse');
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector('.showDialog');
+const closeButton = document.querySelector('.closeDialog');
+const guiaTexto = document.querySelector('.guia-texto')
 const wallpapers = [
     'url("wall1.jpg")',
     'url("wall2.jpg")',
@@ -15,6 +19,7 @@ class BuscadorDeVersiculos {
     executaPrograma = () => {
         this.capturaEnter();
         this.capturaClick();
+        this.rodaGuia();
     }
     capturaEnter = () => {
         document.addEventListener('keyup', e => {
@@ -27,6 +32,12 @@ class BuscadorDeVersiculos {
         botaoRandom.addEventListener('click', e => {
             e.preventDefault();
             this.randomVerse();
+        });
+        closeButton.addEventListener('click',e => {
+            dialog.close();
+        });
+        showButton.addEventListener('click',e => {
+            dialog.showModal();
         });
     }
     buscarVersiculo = () => {
@@ -63,6 +74,18 @@ class BuscadorDeVersiculos {
             }
         }
         fetchData(url);
+    }
+    rodaGuia = () => {
+        const url = 'https://bible-api.com/data/web';
+        async function fetchData(url) {
+            const response = await fetch(url);
+            const dadosObtidos = await response.json();
+            const livros = dadosObtidos.books
+            for(let i=0;i<livros.length;i++){
+                guiaTexto.innerHTML += '  '+livros[i].id +'='+livros[i].name+' <br />';
+            }
+        }
+        fetchData(url)
     }
 }
 const app = new BuscadorDeVersiculos();
