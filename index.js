@@ -56,6 +56,9 @@ class BuscadorDeVersiculos {
                 printarResultado.value = 'Nenhum versículo encontrado.';
             }
         }
+        if(valorDeInput.value === '3.1415926535'){
+            window.location.href = 'Oestranho.html'
+        }
         fetchData(url);
     }
     randomVerse = () => {

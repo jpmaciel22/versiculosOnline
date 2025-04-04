@@ -105,7 +105,7 @@
 
     document.body.appendChild(nekoEl);
 
-    document.addEventListener("click", function (event) { // mousemove
+    document.addEventListener("mousemove", function (event) { //click
       mousePosX = event.clientX;
       mousePosY = event.clientY;
     });
