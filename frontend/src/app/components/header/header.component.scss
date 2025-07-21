@@ -1,0 +1,43 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #0e0e0e;
+  color: #cc0000; // tom de vermelho para texto
+  font-family: "Merriweather", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #cc0000;
+}
+
+.nav {
+  font-family: "Merriweather", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+button {
+  background: transparent;
+  border: none;
+  color: #cc0000;
+  font-size: 1.1rem;
+  text-align: left;
+  font-family: "Merriweather";
+  cursor: pointer;
+  padding: 0.2rem 0;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: #ff4444;
+  }
+}
