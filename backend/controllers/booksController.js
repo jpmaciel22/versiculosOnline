@@ -23,7 +23,6 @@ exports.getDailyVerse = async (req, res) => {
   }
 }
 
-// booksController.js
 exports.getChapters = async (req, res) => {
   try {
     const { bookId } = req.params;
