@@ -12,28 +12,12 @@ export class HeaderComponent {
   livros: any[] = [];
   verso: any[] = [];
   constructor(private books: BooksService, private router: Router) { }
-  getAllBooks() {
-    this.books.getAllBooks().subscribe({
-      next: (res) => {
-        this.livros = res;
-        console.log(this.livros)
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
-  }
 
+  getAllBooks() {
+    this.router.navigate(['/books']);
+  }
   getDaily() {
-    this.books.getRandom().subscribe({
-      next: (res) => {
-        this.verso = res;
-        console.log(this.verso)
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+    this.router.navigate(['/daily']); // Navega para a rota do verso diário
   }
 
 }

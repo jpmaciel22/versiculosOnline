@@ -1,0 +1,7 @@
+    <div class="daily-verse">
+      <h2>Verso Diário</h2>
+      <div *ngIf="verse" style="margin-left: 500px;">
+        <p><strong>{{ verse.book }} {{ verse.chapter }}:{{ verse.verse }}</strong></p>
+        <p>{{ verse.text }}</p>
+      </div>
+    </div>

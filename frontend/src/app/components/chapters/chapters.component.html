@@ -1,0 +1,15 @@
+<div class="chapters-container">
+  <h2>Capítulos de {{ bookName }}</h2>
+  
+  <div class="chapters-grid">
+    <button 
+      *ngFor="let chapter of chapters" 
+      (click)="selectChapter(chapter.chapter)"
+      class="chapter-button"
+    >
+      Capítulo {{ chapter.chapter }}
+    </button>
+  </div>
+
+  <button (click)="goBack()" class="back-button">Voltar para Livros</button>
+</div>

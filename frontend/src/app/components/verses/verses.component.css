@@ -1,0 +1,45 @@
+.verses-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.verse-list {
+  text-align: left;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.verse-item {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.verse-number {
+  font-weight: bold;
+  margin-right: 8px;
+  color: #2c3e50;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .books-grid, .chapters-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  button {
+    padding: 10px 6px;
+    font-size: 0.9rem;
+  }
+}

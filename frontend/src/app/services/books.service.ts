@@ -20,4 +20,12 @@ export class BooksService {
     return this.http.get(`${this.api}/books/daily`)
   }
 
+getChapters(bookId: string): Observable<any> {
+  return this.http.get(`${this.api}/books/${bookId}/chapters`);
+}
+
+getVerses(bookId: string, chapter: number): Observable<any> {
+  return this.http.get(`${this.api}/books/${bookId}/${chapter}`);
+}
+
 }

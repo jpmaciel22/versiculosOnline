@@ -22,3 +22,26 @@ exports.getDailyVerse = async (req, res) => {
     res.status(500).json({error: 'Erro ao capturar verso diário'})
   }
 }
+
+// booksController.js
+exports.getChapters = async (req, res) => {
+  try {
+    const { bookId } = req.params;
+    const response = await fetch(`https://bible-api.com/data/almeida/${bookId}`);
+    const data = await response.json();
+    res.status(200).json(data.chapters);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao buscar capítulos' });
+  }
+};
+
+exports.getVerses = async (req, res) => {
+  try {
+    const { bookId, chapter } = req.params;
+    const response = await fetch(`https://bible-api.com/data/almeida/${bookId}/${chapter}`);
+    const data = await response.json();
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao buscar versículos' });
+  }
+};

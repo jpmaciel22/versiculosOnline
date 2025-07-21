@@ -1,0 +1,5 @@
+<div class="books-grid">
+    <button *ngFor="let book of books" (click)="selectBook(book.id)">
+        {{ book.name }}
+    </button>
+</div>
