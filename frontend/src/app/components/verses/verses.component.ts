@@ -14,6 +14,7 @@ export class VersesComponent implements OnInit {
   bookName: string = '';
   chapterNumber: number = 0;
   bookId: string = '';
+  max_chapters: number = 0;
 
   constructor(
     private booksService: BooksService,
@@ -23,8 +24,10 @@ export class VersesComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      console.log(params)
       this.bookId = params['bookId'];
       this.chapterNumber = +params['chapter'];
+      this.max_chapters = params['max_chapters']
       this.loadVerses(this.bookId, this.chapterNumber);
       localStorage.setItem('bookId', this.bookId);
       localStorage.setItem('chapterNumber', String(this.chapterNumber));
@@ -45,11 +48,11 @@ export class VersesComponent implements OnInit {
     this.router.navigate(['/chapters', this.bookId]);
   }
   next() {
-    this.router.navigate(['/verses', this.bookId, this.chapterNumber + 1])
+    this.router.navigate(['/verses', this.bookId, this.chapterNumber + 1,this.max_chapters ])
   }
 
   back() {
-    this.router.navigate(['/verses', this.bookId, this.chapterNumber - 1])
+    this.router.navigate(['/verses', this.bookId, this.chapterNumber - 1,this.max_chapters])
   }
 }
 

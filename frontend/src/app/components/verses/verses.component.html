@@ -1,6 +1,6 @@
 <div class="verses-container">
   <h2>{{ bookName }} {{ chapterNumber }}</h2>
-  
+
   <div class="verse-list">
     <div *ngFor="let verse of verses" class="verse-item">
       <span class="verse-number">{{ verse.verse }}.</span>
@@ -10,7 +10,7 @@
 
   <button (click)="goBackToChapters()" class="back-button">Voltar para Capítulos</button>
   <br>
-  <button (click)="next()" class="back-button">Próximo Capítulo</button>
+  <button *ngIf="chapterNumber < max_chapters" (click)="next()" class="back-button">Próximo Capítulo</button>
   <br>
-    <button (click)="back()" class="back-button">Capítulo Anterior</button>
+  <button *ngIf="chapterNumber > 1" (click)="back()" class="back-button">Capítulo Anterior</button>
 </div>

@@ -38,7 +38,7 @@ export class ChaptersComponent implements OnInit {
   }
 
   selectChapter(chapter: number) {
-    this.router.navigate(['/verses', this.bookId, chapter]);
+    this.router.navigate(['/verses', this.bookId, chapter, this.chapters.length]);
   }
 
   goBack() {

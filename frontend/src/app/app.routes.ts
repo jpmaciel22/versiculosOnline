@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: '', redirectTo: '/books', pathMatch: 'full' },
     { path: 'books', component: BooksComponent },
     { path: 'chapters/:bookId', component: ChaptersComponent },
-    { path: 'verses/:bookId/:chapter', component: VersesComponent },
+    { path: 'verses/:bookId/:chapter/:max_chapters', component: VersesComponent },
     { path: 'daily', component: DailyVerseComponent },
     { path: 'settings', component: SettingsComponent },
     { path: 'search', component: SearchComponent }
