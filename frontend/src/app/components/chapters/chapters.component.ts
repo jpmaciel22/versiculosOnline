@@ -31,7 +31,7 @@ export class ChaptersComponent implements OnInit {
     this.booksService.getChapters(bookId).subscribe({
       next: (res) => {
         this.chapters = res;
-        this.bookName = res[0]?.book || ''; // Assume que todos os capítulos são do mesmo livro
+        this.bookName = res[0]?.book || '';
       },
       error: (err) => console.error(err)
     });

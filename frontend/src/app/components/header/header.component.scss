@@ -2,7 +2,7 @@
   width: 220px;
   height: 100vh;
   background-color: #0e0e0e;
-  color: #cc0000; // tom de vermelho para texto
+  color: #cc0000;
   font-family: "Merriweather", sans-serif;
   display: flex;
   flex-direction: column;
@@ -11,12 +11,47 @@
   position: fixed;
   left: 0;
   top: 0;
+  overflow: hidden; /* Impede que a imagem vaze da sidebar */
+
+  /* Novo: Imagem de fundo na parte inferior */
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 700px; /* Altura da imagem */
+    background-image: url('../../../../public/wall4.jpg');
+    background-size: cover;
+    background-position: center top;
+    z-index: 0;
+    opacity: 0.8; /* Ajuste a transparência conforme necessário */
+  }
+
+  /* Novo: Degradê para misturar com o fundo */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 700px;
+    background: linear-gradient(
+      to bottom,
+      #0e0e0e 0%,
+      rgba(14, 14, 14, 0.7) 18%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
 }
 
 .title {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: #cc0000;
+  position: relative; /* Garante que fique acima da imagem */
+  z-index: 2;
 }
 
 .nav {
@@ -24,6 +59,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  position: relative; /* Garante que fique acima da imagem */
+  z-index: 2;
+  flex-grow: 1; /* Empurra os botões para cima */
 }
 
 button {
@@ -36,6 +74,8 @@ button {
   cursor: pointer;
   padding: 0.2rem 0;
   transition: color 0.2s ease-in-out;
+  position: relative; /* Garante que fique acima da imagem */
+  z-index: 2;
 
   &:hover {
     color: #ff4444;

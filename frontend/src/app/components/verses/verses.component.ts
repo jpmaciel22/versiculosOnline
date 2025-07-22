@@ -19,13 +19,15 @@ export class VersesComponent implements OnInit {
     private booksService: BooksService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.bookId = params['bookId'];
       this.chapterNumber = +params['chapter'];
       this.loadVerses(this.bookId, this.chapterNumber);
+      localStorage.setItem('bookId', this.bookId);
+      localStorage.setItem('chapterNumber', String(this.chapterNumber));
     });
   }
 

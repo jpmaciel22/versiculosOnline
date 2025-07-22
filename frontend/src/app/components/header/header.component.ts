@@ -17,7 +17,10 @@ export class HeaderComponent {
     this.router.navigate(['/books']);
   }
   getDaily() {
-    this.router.navigate(['/daily']); // Navega para a rota do verso diário
+    this.router.navigate(['/daily']);
+  }
+  getSettings(){
+    this.router.navigate(['/settings'])
   }
 
 }
