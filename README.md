@@ -3,3 +3,5 @@
 
 ### Imagens do Website:
 ![Imagem 1](frontend/public/print1.png)
+
+![Imagem 2](frontend/public/print2.png)
