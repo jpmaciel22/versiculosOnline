@@ -1,37 +1,33 @@
-/* Estilo para ambos os grids */
 .books-grid, .chapters-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 15px;
   padding: 20px;
-  max-width: 800px; /* Largura máxima para melhor leitura */
-  margin: 0 auto; /* Centraliza o grid */
+  max-width: 800px;
+  margin: 0 auto; 
 }
 
-/* Estilo dos botões */
 button {
   padding: 12px 8px;
   background-color: transparent;
-  border: 1px solid #333; /* Cor da sidebar */
-  color: #cc0000; /* Cor igual ao título da sidebar */
-  font-family: 'Georgia', serif; /* Fonte similar à bíblica */
+  border: 1px solid #333; 
+  color: #f12828;
+  font-family: 'Georgia', serif; 
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease; /* Transição suave */
+  transition: all 0.3s ease;
 }
 
-/* Efeito hover */
 button:hover {
-  background-color: #f5f5dc; /* Bege claro */
+  background-color: #f5f5dc; 
   color: #333;
-  transform: translateY(-2px); /* Efeito sutil de elevação */
+  transform: translateY(-2px); 
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Títulos */
 h2 {
-  color: #cc0000; /* Cor igual à sidebar */
+  color: #cc0000; 
   text-align: center;
   font-family: 'Georgia', serif;
   margin-bottom: 20px;

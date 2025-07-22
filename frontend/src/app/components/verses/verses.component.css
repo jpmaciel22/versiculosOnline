@@ -1,45 +1,118 @@
-.verses-container {
-  padding: 20px;
+.verse-container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Merriweather', serif;
 }
 
-.verse-list {
-  text-align: left;
-  margin: 20px 0;
-  line-height: 1.6;
+.verse-reference {
+  color: #f12828;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0d6c2;
+}
+
+button {
+  background-color: #131111;
+  border: 1px solid #e0d6c2;
+  padding: 10px;
+  color: #e8e4dc;
+  border-radius: 8px;
+  margin: 3px;
+}
+
+.verse-text {
+  background-color: #131111;
+  border: 1px solid #e0d6c2;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .verse-item {
-  margin-bottom: 10px;
+  margin-bottom: 1.2rem;
   display: flex;
+  line-height: 1.8;
+  color: #e8e4dc;
 }
 
 .verse-number {
   font-weight: bold;
-  margin-right: 8px;
-  color: #2c3e50;
+  color: #f12828;
+  min-width: 30px;
 }
 
-.back-button {
-  margin-top: 20px;
-  padding: 8px 16px;
-  background-color: #6c757d;
-  color: white;
+.verse-content {
+  flex: 1;
+}
+
+.translation-info {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #e0d6c2;
+  font-style: italic;
+  text-align: right;
+}
+
+.navigation-arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.arrow-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chapter-label {
+  color: #e8e4dc;
+  font-size: 1rem;
+}
+
+.arrow-button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
+  position: relative;
+  padding: 0;
+  margin: 0;
 }
 
-@media (max-width: 600px) {
-  .books-grid, .chapters-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-    padding: 10px;
+.arrow-button:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 3px solid #f12828;
+  border-right: 3px solid #f12828;
+  top: 50%;
+  left: 50%;
+}
+
+.left-arrow:before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.right-arrow:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .verse-container {
+    padding: 0.5rem;
   }
-  
-  button {
-    padding: 10px 6px;
-    font-size: 0.9rem;
+
+  .verse-text {
+    padding: 1rem;
+  }
+
+  .verse-reference {
+    font-size: 1.3rem;
   }
 }

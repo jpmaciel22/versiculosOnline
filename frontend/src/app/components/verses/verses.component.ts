@@ -30,6 +30,7 @@ export class VersesComponent implements OnInit {
       this.loadVerses(this.bookId, this.chapterNumber);
       localStorage.setItem('bookId', this.bookId);
       localStorage.setItem('chapterNumber', String(this.chapterNumber));
+      localStorage.setItem('max_chapters', String(this.max_chapters));
     });
   }
 

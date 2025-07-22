@@ -1,16 +1,26 @@
-<div class="verses-container">
-  <h2>{{ bookName }} {{ chapterNumber }}</h2>
+<div class="verse-container">
+  <h2 class="verse-reference">{{ bookName }} {{ chapterNumber }}</h2>
 
-  <div class="verse-list">
-    <div *ngFor="let verse of verses" class="verse-item">
-      <span class="verse-number">{{ verse.verse }}.</span>
-      <span class="verse-text">{{ verse.text }}</span>
+  <div class="navigation-arrows">
+    <div *ngIf="chapterNumber > 1" class="arrow-container">
+      <button (click)="back()" class="arrow-button left-arrow"></button>
+      <span class="chapter-label">{{bookId}} {{chapterNumber - 1}}</span>
+    </div>
+    <div *ngIf="chapterNumber < max_chapters" class="arrow-container">
+      <span class="chapter-label">{{bookId}} {{chapterNumber + 1}}</span>
+      <button (click)="next()" class="arrow-button right-arrow"></button>
     </div>
   </div>
 
+  <div class="verse-text">
+    <div *ngFor="let verse of verses" class="verse-item">
+      <span class="verse-number">{{ verse.verse }}.</span>
+      <span class="verse-content">{{ verse.text }}</span>
+    </div>
+  </div>
+
+  <div class="translation-info">
+    Tradução: João Ferreira de Almeida (almeida)
+  </div>
   <button (click)="goBackToChapters()" class="back-button">Voltar para Capítulos</button>
-  <br>
-  <button *ngIf="chapterNumber < max_chapters" (click)="next()" class="back-button">Próximo Capítulo</button>
-  <br>
-  <button *ngIf="chapterNumber > 1" (click)="back()" class="back-button">Capítulo Anterior</button>
 </div>
