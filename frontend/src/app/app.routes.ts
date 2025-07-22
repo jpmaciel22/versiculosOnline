@@ -4,6 +4,7 @@ import { ChaptersComponent } from './components/chapters/chapters.component';
 import { VersesComponent } from './components/verses/verses.component';
 import { DailyVerseComponent } from './components/daily-verse/daily-verse.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { SearchComponent } from './components/search/search.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/books', pathMatch: 'full' },
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'chapters/:bookId', component: ChaptersComponent },
     { path: 'verses/:bookId/:chapter', component: VersesComponent },
     { path: 'daily', component: DailyVerseComponent },
-    {path: 'settings', component:SettingsComponent}
+    { path: 'settings', component: SettingsComponent },
+    { path: 'search', component: SearchComponent }
 ];

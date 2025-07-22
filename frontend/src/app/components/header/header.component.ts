@@ -22,5 +22,8 @@ export class HeaderComponent {
   getSettings(){
     this.router.navigate(['/settings'])
   }
+    getSearch(){
+    this.router.navigate(['/search'])
+  }
 
 }

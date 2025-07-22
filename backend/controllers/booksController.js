@@ -1,5 +1,4 @@
 const express = require('express');
-const router = express.Router();
 const { getAllBooks, getDailyVerse } = require('../services/booksService');
 
 exports.getAllBooks = async (req, res) => {
@@ -44,3 +43,16 @@ exports.getVerses = async (req, res) => {
     res.status(500).json({ error: 'Erro ao buscar versículos' });
   }
 };
+
+exports.getSearch = async (req,res) => {
+  try{
+    const {input} = req.params;
+    const encodedInput = encodeURIComponent(input);
+    const response = await fetch(`https://bible-api.com/${encodedInput}?translation=almeida`)
+    const data = await response.json();
+    res.status(200).json(data);
+  }
+  catch(err){
+    res.status(500).json({error: 'Erro ao buscar versículos.'})
+  }
+}

@@ -1,0 +1,24 @@
+<div class="search-container">
+  <h1>Pesquisar Versículo</h1>
+  <div class="search-box">
+    <input 
+      [(ngModel)]="input" 
+      placeholder="Ex: JHN 15 ou JHN 15:13-17"
+      (keyup.enter)="goToChapter(input)"
+    >
+    <button (click)="goToChapter(input)">Buscar</button>
+  </div>
+
+  <div *ngIf="verseData" class="verse-container">
+    <h2 class="verse-reference">{{ verseData.reference }}</h2>
+    <div class="verse-text">
+      <div *ngFor="let verse of verseData.verses" class="verse-item">
+        <span class="verse-number">{{ verse.verse }}.</span>
+        <span class="verse-content">{{ verse.text }}</span>
+      </div>
+    </div>
+    <div class="translation-info">
+      Tradução: {{ verseData.translation_name }} ({{ verseData.translation_id }})
+    </div>
+  </div>
+</div>
