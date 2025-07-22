@@ -44,6 +44,13 @@ export class VersesComponent implements OnInit {
   goBackToChapters() {
     this.router.navigate(['/chapters', this.bookId]);
   }
+  next() {
+    this.router.navigate(['/verses', this.bookId, this.chapterNumber + 1])
+  }
+
+  back() {
+    this.router.navigate(['/verses', this.bookId, this.chapterNumber - 1])
+  }
 }
 
 
