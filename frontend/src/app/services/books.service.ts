@@ -29,7 +29,6 @@ getVerses(bookId: string, chapter: number): Observable<any> {
 }
 
 getSearchVerse(input:string): Observable<any>{
-  console.log(input)
   return this.http.get(`${this.api}/books/search/${input}`)
 }
 
