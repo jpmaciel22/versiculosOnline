@@ -24,7 +24,6 @@ export class VersesComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(params)
       this.bookId = params['bookId'];
       this.chapterNumber = +params['chapter'];
       this.max_chapters = params['max_chapters']
