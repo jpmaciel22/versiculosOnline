@@ -4,10 +4,10 @@
   <div class="navigation-arrows">
     <div *ngIf="chapterNumber > 1" class="arrow-container">
       <button (click)="back()" class="arrow-button left-arrow"></button>
-      <span class="chapter-label">{{bookId}} {{chapterNumber - 1}}</span>
+      <span class="chapter-label">{{bookName}} {{chapterNumber - 1}}</span>
     </div>
     <div *ngIf="chapterNumber < max_chapters" class="arrow-container">
-      <span class="chapter-label">{{bookId}} {{chapterNumber + 1}}</span>
+      <span class="chapter-label">{{bookName}} {{chapterNumber + 1}}</span>
       <button (click)="next()" class="arrow-button right-arrow"></button>
     </div>
   </div>
@@ -20,7 +20,7 @@
   </div>
 
   <div class="translation-info">
-    Tradução: João Ferreira de Almeida (almeida)
+    Tradução: Ave Maria
   </div>
   <button (click)="goBackToChapters()" class="back-button">Voltar para Capítulos</button>
 </div>

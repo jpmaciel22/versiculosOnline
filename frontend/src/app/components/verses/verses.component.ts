@@ -37,6 +37,7 @@ export class VersesComponent implements OnInit {
   loadVerses(bookId: string, chapter: number) {
     this.booksService.getVerses(bookId, chapter).subscribe({
       next: (res) => {
+        console.log(res)
         this.verses = res.verses;
         this.bookName = res.verses[0]?.book || '';
       },

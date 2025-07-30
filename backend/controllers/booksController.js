@@ -1,58 +1,48 @@
-const express = require('express');
-const { getAllBooks, getDailyVerse } = require('../services/booksService');
+const {
+  getAllBooks,
+  getDailyVerse,
+  getChapters,
+  getVerses,
+  searchVerses
+} = require('../services/booksService');
 
-exports.getAllBooks = async (req, res) => {
+exports.getAllBooks = (req, res) => {
   try {
-    const books = await getAllBooks();
-    res.status(200).json(books)
+    const books = getAllBooks();
+    res.status(200).json(books);
   } catch (err) {
-    console.error('Erro ao buscar livros:', err.message);
     res.status(500).json({ error: 'Erro ao buscar livros' });
   }
-}
+};
 
-exports.getDailyVerse = async (req, res) => {
+exports.getDailyVerse = (req, res) => {
   try {
-    const verse = await getDailyVerse();
-    res.status(200).json(verse)
+    const verse = getDailyVerse();
+    res.status(200).json({ verses: [verse], translation: verse.translation });
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao capturar verso diário' });
   }
-  catch (err) {
-    console.error('Erro ao capturar verso diário',err);
-    res.status(500).json({error: 'Erro ao capturar verso diário'})
-  }
-}
+};
 
-exports.getChapters = async (req, res) => {
+exports.getChapters = (req, res) => {
   try {
-    const { bookId } = req.params;
-    const response = await fetch(`https://bible-api.com/data/almeida/${bookId}`);
-    const data = await response.json();
-    res.status(200).json(data.chapters);
+    const { bookSlug } = req.params;
+    const chapters = getChapters(bookSlug);
+    if (!chapters) return res.status(404).json({ error: 'Livro não encontrado' });
+    res.status(200).json(chapters);
   } catch (err) {
     res.status(500).json({ error: 'Erro ao buscar capítulos' });
   }
 };
 
-exports.getVerses = async (req, res) => {
+exports.getVerses = (req, res) => {
   try {
-    const { bookId, chapter } = req.params;
-    const response = await fetch(`https://bible-api.com/data/almeida/${bookId}/${chapter}`);
-    const data = await response.json();
-    res.status(200).json(data);
+    const { bookSlug, chapter } = req.params;
+    const verses = getVerses(bookSlug, chapter);
+    if (!verses) return res.status(404).json({ error: 'Capítulo ou livro não encontrado' });
+    res.status(200).json({ verses });
   } catch (err) {
     res.status(500).json({ error: 'Erro ao buscar versículos' });
   }
 };
 
-exports.getSearch = async (req,res) => {
-  try{
-    const {input} = req.params;
-    const encodedInput = encodeURIComponent(input);
-    const response = await fetch(`https://bible-api.com/${encodedInput}?translation=almeida`)
-    const data = await response.json();
-    res.status(200).json(data);
-  }
-  catch(err){
-    res.status(500).json({error: 'Erro ao buscar versículos.'})
-  }
-}
