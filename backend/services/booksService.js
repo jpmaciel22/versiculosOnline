@@ -48,8 +48,7 @@ function getChapters(bookSlug) {
   return livro.capitulos.map(cap => ({
     book: livro.nome,
     book_slug: slugify(livro.nome),
-    chapter: cap.capitulo,
-    url: `/books/${slugify(livro.nome)}/${cap.capitulo}`
+    chapter: cap.capitulo
   }));
 }
 
