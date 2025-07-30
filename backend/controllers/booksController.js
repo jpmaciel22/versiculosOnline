@@ -3,7 +3,6 @@ const {
   getDailyVerse,
   getChapters,
   getVerses,
-  searchVerses
 } = require('../services/booksService');
 
 exports.getAllBooks = (req, res) => {
